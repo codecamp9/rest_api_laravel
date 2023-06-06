@@ -9,7 +9,7 @@
 
 ## REST API dengan Laravel
 
-Repositori ini berisi implementasi RESTful API menggunakan framework Laravel, yang memungkinkan Anda untuk membuat, membaca, memperbarui, dan menghapus data melalui endpoint API yang sudah terdefinisi. REST API ini dibangun dengan menggunakan konvensi terbaik dan praktik terbaru dalam pengembangan web.
+Repositori ini berisi implementasi RESTful API menggunakan framework Laravel, yang memungkinkan Anda untuk membuat, membaca, memperbarui, dan menghapus data melalui endpoint API yang sudah terdefinisi.
 
 ## License
 
