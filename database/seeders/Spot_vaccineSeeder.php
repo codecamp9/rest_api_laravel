@@ -15,6 +15,6 @@ class Spot_vaccineSeeder extends Seeder
      */
     public function run(): void
     {
-        
+        //
     }
 }
