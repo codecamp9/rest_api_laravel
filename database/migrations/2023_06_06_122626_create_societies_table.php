@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('societies', function (Blueprint $table) {
             $table->id();
-            $table->char('id_card');
+            $table->char('id_card_namber');
             $table->string('password');
             $table->string('name');
-            $table->date('bron_date');
+            $table->date('born_date');
             $table->enum('gender', ['male', 'female']);
             $table->text('address');
             $table->bigInteger('regional_id')->unsigned();

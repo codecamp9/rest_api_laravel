@@ -15,6 +15,6 @@ class MedicalSeeder extends Seeder
      */
     public function run(): void
     {
-        Medical::factory(Spot::factory(User::factory()->count(10)))->count(5)->create();
+       //
     }
 }

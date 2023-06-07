@@ -22,7 +22,7 @@ class SpotFactory extends Factory
             'regional_id' => Regional::factory(),
             'name' => $this->faker->name(),
             'address' => $this->faker->address(),
-            'serve' => $this->faker->randomDigit(),
+            'serve' => $this->faker->randomElement([1, 2, 3]),
             'capacity' => $this->faker->randomDigit(),
             'created_at' => now(),
             'updated_at' => now(),

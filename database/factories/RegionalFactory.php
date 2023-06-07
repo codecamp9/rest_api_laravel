@@ -17,8 +17,8 @@ class RegionalFactory extends Factory
     public function definition(): array
     {
         return [
-            'province' => $this->faker->citySuffix(),
-            'district' => $this->faker->city(),
+            'province' => $this->faker->city(),
+            'district' => $this->faker->citySuffix(),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -15,6 +15,6 @@ class Spot_vaccineSeeder extends Seeder
      */
     public function run(): void
     {
-        Spot_vaccine::factory(Spot::factory(Vaccine::factory()->count(10)))->count(5)->create();
+        
     }
 }

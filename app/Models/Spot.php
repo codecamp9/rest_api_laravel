@@ -9,8 +9,8 @@ class Spot extends Model
 {
     use HasFactory;
 
-    public function Regionals()
+    public function Vaccines()
     {
-        return $this->hasMany(Regional::class);
+        return $this->belongsToMany(Vaccine::class);
     }
 }

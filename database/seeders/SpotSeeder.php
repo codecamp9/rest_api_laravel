@@ -14,6 +14,9 @@ class SpotSeeder extends Seeder
      */
     public function run(): void
     {
-        Spot::factory(Regional::factory()->count(5))->count(5)->create();
+        Regional::factory()
+            ->has(Spot::factory()->count(5))
+            ->count(5)
+            ->create();
     }
 }
