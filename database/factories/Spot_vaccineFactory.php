@@ -18,9 +18,13 @@ class Spot_vaccineFactory extends Factory
      */
     public function definition(): array
     {
+
+        $spot = Spot::inRandomOrder()->first();
+        $vaccine = Vaccine::inRandomOrder()->first();
+
         return [
-            'spot_id' => Spot::factory(),
-            'vaccine_id' => Vaccine::factory(),
+            'spot_id' => $spot->id,
+            'vaccine_id' => $vaccine->id,
             'created_at' => now(),
             'updated_at' => now(),
         ];

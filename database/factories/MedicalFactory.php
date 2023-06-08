@@ -18,9 +18,13 @@ class MedicalFactory extends Factory
      */
     public function definition(): array
     {
+
+        $spot = Spot::inRandomOrder()->first();
+        $user = User::inRandomOrder()->first();
+
         return [
-            'spot_id' => Spot::factory(),
-            'user_id' => User::factory(),
+            'spot_id' => $spot->id,
+            'user_id' => $user->id,
             'role' => $this->faker->randomElement(['officer', 'doctor']),
             'name' => $this->faker->name(),
         ];

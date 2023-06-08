@@ -17,7 +17,7 @@ class VaccineFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => $this->faker->randomElement(['Sinovac', 'Sinopharm']),
+            'name' => $this->faker->randomElement(['Sinovac', 'Sinopharm', 'Moderna', 'AstraZeneca', 'Pfizer']),
             'created_at' => now(),
             'updated_at' => now(),
         ];

@@ -9,8 +9,4 @@ class Spot extends Model
 {
     use HasFactory;
 
-    public function Vaccines()
-    {
-        return $this->belongsToMany(Vaccine::class);
-    }
 }

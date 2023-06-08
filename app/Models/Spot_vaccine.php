@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Spot_vaccine extends Model
 {
     use HasFactory;
+
+    public function Spots()
+    {
+        return $this->belongsToMany(Spot::class);
+    }
+
+    public function Vaccines()
+    {
+        return $this->belongsToMany(Vaccine::class);
+    }
 }
