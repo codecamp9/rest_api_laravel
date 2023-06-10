@@ -9,13 +9,8 @@ class Medical extends Model
 {
     use HasFactory;
 
-    public function Spots()
-    {
-        return $this->belongsToMany(Spot::class);
-    }
-
-    public function Users()
-    {
-        return $this->belongsToMany(User::class);
-    }
+    // public function consultations()
+    // {
+    //     return $this->belongsTo(Consultation::class);
+    // }
 }

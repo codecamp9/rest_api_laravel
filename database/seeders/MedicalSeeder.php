@@ -16,14 +16,6 @@ class MedicalSeeder extends Seeder
      */
     public function run(): void
     {
-        // Medical::factory()
-        // ->count(10)
-        // ->create()
-        // ->each(function ($spotVaccine) {
-        //     $spotVaccine->spots()->attach(Spot::factory()->count(5)->create());
-        //     $spotVaccine->vaccines()->attach(User::factory()->count(5)->create());
-        // });
-
         Medical::factory()->count(10)->create();
     }
 }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('consultations', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('society_id')->unsigned();
-            $table->bigInteger('doctor_id')->unsigned();
+            $table->bigInteger('medical_id')->unsigned();
             $table->enum('status', ['accepted', 'declined', 'pending']);
             $table->text('disease_history');
             $table->text('current_symptoms');
@@ -22,7 +22,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreign('society_id')->references('id')->on('societies');
-            $table->foreign('doctor_id')->references('id')->on('medicals');
+            $table->foreign('medical_id')->references('id')->on('medicals');
         });
     }
 

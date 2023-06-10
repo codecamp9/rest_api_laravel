@@ -25,7 +25,7 @@ class ConsultationFactory extends Factory
 
         return [
             'society_id' => $societie->id,
-            'doctor_id' => $medical->id,
+            'medical_id' => $medical->id,
             'status' => $this->faker->randomElement(['pending','accepted', 'declined']),
             'disease_history' => $this->faker->randomElement(['flu', 'tipes', 'dbd']),
             'current_symptoms' => $this->faker->randomElement(['batuk', 'pilek']),

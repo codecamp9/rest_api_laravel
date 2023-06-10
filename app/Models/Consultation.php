@@ -9,13 +9,8 @@ class Consultation extends Model
 {
     use HasFactory;
 
-    public function Societies()
+    public function medical()
     {
-        return $this->belongsToMany(Societie::class);
-    }
-
-    public function Medicals()
-    {
-        return $this->belongsToMany(Medical::class);
+        return $this->belongsTo(Medical::class);
     }
 }
