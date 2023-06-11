@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Regional extends Model
 {
     use HasFactory;
+
+    public function Spots()
+    {
+        return $this->hasMany(Spot::class);
+    }
+
+    public function Societies()
+    {
+        return $this->hasMany(Societie::class);
+    }
 }

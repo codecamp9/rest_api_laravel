@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Regional;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Societie>
@@ -27,7 +28,7 @@ class SocietieFactory extends Factory
             'gender' => $this->faker->randomElement($genders),
             'address' => $this->faker->address(),
             'regional_id' => Regional::factory(),
-            'login_tokens' => $this->faker->randomNumber(),
+            'login_tokens' => Str::random(80),
             'created_at' => now(),
             'updated_at' => now(),
         ];

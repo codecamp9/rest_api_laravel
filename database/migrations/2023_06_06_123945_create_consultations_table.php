@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('status', ['accepted', 'declined', 'pending']);
             $table->text('disease_history');
             $table->text('current_symptoms');
-            $table->text('doctor_notes');
+            $table->text('doctor_notes')->nullable(true)->default(null);
             $table->timestamps();
 
             $table->foreign('society_id')->references('id')->on('societies');

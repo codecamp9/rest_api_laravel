@@ -20,7 +20,7 @@ return new class extends Migration
             $table->enum('gender', ['male', 'female']);
             $table->text('address');
             $table->bigInteger('regional_id')->unsigned();
-            $table->text('login_tokens');
+            $table->text('login_tokens')->unique()->nullable(true)->default(null);
             $table->timestamps();
 
             $table->foreign('regional_id')->references('id')->on('regionals');

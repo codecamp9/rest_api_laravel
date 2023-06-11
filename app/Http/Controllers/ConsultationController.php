@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Resources\consultations\ConsultationCollection;
 use App\Http\Resources\consultations\ConsultationResource;
 use App\Models\Consultation;
-use App\Models\Medical;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class ConsultationController extends Controller
 {
@@ -28,8 +28,11 @@ class ConsultationController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $data['society_id'] = $request->user()->id;
+        $data['status'] = 'pending';
+        $data['doctor_notes'] = 'menunggu konfirmasi dokter';
 
-        Consultation::insert($data);
+        request()->user()->consultations()->insert($data);
 
         return Response()->json([
             'message' => 'Requset consultation sent successful',

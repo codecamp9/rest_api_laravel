@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\ConsultationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,10 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('v1/auth/login', [AuthenticationController::class, 'login']);
+Route::get('v1/auth/logout', [AuthenticationController::class, 'logout'])->middleware(['auth:sanctum']);
 
-Route::get('v1/consultations', [ConsultationController::class, 'index']);
-Route::get('v1/consultations/{id}', [ConsultationController::class, 'show']);
-Route::post('v1/consultations', [ConsultationController::class, 'store']);
+Route::get('v1/consultations', [ConsultationController::class, 'index'])->middleware(['auth:sanctum']);
+Route::get('v1/consultations/{id}', [ConsultationController::class, 'show'])->middleware(['auth:sanctum']);
+Route::post('v1/consultations', [ConsultationController::class, 'store'])->middleware(['auth:sanctum']);
