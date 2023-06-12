@@ -9,4 +9,8 @@ class Spot extends Model
 {
     use HasFactory;
 
+    public function regional()
+    {
+        return $this->belongsTo(Regional::class);
+    }
 }

@@ -21,6 +21,7 @@ class ConsultationResource extends JsonResource
             'disease_history' => $this->disease_history,
             'current_symptoms' => $this->current_symptoms,
             'doctor_notes' => $this->doctor_notes,
+            'doctor_id' => $this->medical_id,
             'doctor' => $this->medical,
         ];
     }

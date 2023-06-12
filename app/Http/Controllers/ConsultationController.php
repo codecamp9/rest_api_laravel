@@ -2,38 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\consultations\ConsultationCollection;
 use App\Http\Resources\consultations\ConsultationResource;
 use App\Models\Consultation;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class ConsultationController extends Controller
 {
     public function index()
     {
-        $datas = Consultation::with('medical')->get();
+        $datas = Consultation::with('medical:id,name')->get();
 
-        return new ConsultationCollection($datas);
-    }
-
-    public function show(string $id)
-    {
-        $data = Consultation::find($id);
-
-        return new ConsultationResource($data);
+        return ConsultationResource::collection($datas);
     }
 
     public function store(Request $request)
     {
-        $data = $request->all();
-        $data['society_id'] = $request->user()->id;
-        $data['status'] = 'pending';
-        $data['doctor_notes'] = 'menunggu konfirmasi dokter';
+        $request->validate([
+            'disease_history' => 'required',
+            'current_symptoms' => 'required',
+        ]);
 
-        request()->user()->consultations()->insert($data);
+        $request['status'] = 'pending';
+        $request['doctor_notes'] = 'menunggu konfirmasi dokter';
+        $request['society_id'] = Auth::user()->id;
 
+        Consultation::insert($request->all());
+        
         return Response()->json([
             'message' => 'Requset consultation sent successful',
         ], 200);
